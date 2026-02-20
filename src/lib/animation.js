@@ -23,9 +23,9 @@
  * @returns {string}
  */
 export function cadenceEasing() {
-	// linear() lets us define arbitrary keyframe values at % positions.
-	// Values > 1 create the micro-overshoot.
-	return 'linear(0, 0.06 8%, 0.54 30%, 1.02 60%, 0.99 75%, 1)';
+  // linear() lets us define arbitrary keyframe values at % positions.
+  // Values > 1 create the micro-overshoot.
+  return "linear(0, 0.06 8%, 0.54 30%, 1.02 60%, 0.99 75%, 1)";
 }
 
 /**
@@ -41,17 +41,17 @@ export function cadenceEasing() {
  * @returns {{ el: HTMLElement, destroy: () => void }}
  */
 export function createScene(el, options = {}) {
-	const perspective = options.perspective ?? '800px';
-	el.style.perspective = perspective;
-	el.style.perspectiveOrigin = '50% 40%';
+  const perspective = options.perspective ?? "800px";
+  el.style.perspective = perspective;
+  el.style.perspectiveOrigin = "50% 40%";
 
-	return {
-		el,
-		destroy() {
-			el.style.perspective = '';
-			el.style.perspectiveOrigin = '';
-		}
-	};
+  return {
+    el,
+    destroy() {
+      el.style.perspective = "";
+      el.style.perspectiveOrigin = "";
+    },
+  };
 }
 
 /**
@@ -70,36 +70,36 @@ export function createScene(el, options = {}) {
  * @returns {{ swoop: () => Animation }}
  */
 export function createCamera(el, options = {}) {
-	const duration = options.duration ?? 400;
-	const rotateX = options.rotateX ?? 4;
-	const rotateY = options.rotateY ?? 0;
-	const translateZ = options.translateZ ?? -30;
+  const duration = options.duration ?? 400;
+  const rotateX = options.rotateX ?? 4;
+  const rotateY = options.rotateY ?? 0;
+  const translateZ = options.translateZ ?? -30;
 
-	el.style.transformStyle = 'preserve-3d';
+  el.style.transformStyle = "preserve-3d";
 
-	return {
-		/**
-		 * Performs a subtle camera swoop: tilts in, then resolves to neutral.
-		 *
-		 * @returns {Animation}
-		 */
-		swoop() {
-			return el.animate(
-				[
-					{ transform: 'translate3d(0,0,0) rotateX(0deg) rotateY(0deg)' },
-					{
-						transform: `translate3d(0,0,${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-					},
-					{ transform: 'translate3d(0,0,0) rotateX(0deg) rotateY(0deg)' }
-				],
-				{
-					duration,
-					easing: cadenceEasing(),
-					fill: 'none'
-				}
-			);
-		}
-	};
+  return {
+    /**
+     * Performs a subtle camera swoop: tilts in, then resolves to neutral.
+     *
+     * @returns {Animation}
+     */
+    swoop() {
+      return el.animate(
+        [
+          { transform: "translate3d(0,0,0) rotateX(0deg) rotateY(0deg)" },
+          {
+            transform: `translate3d(0,0,${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+          },
+          { transform: "translate3d(0,0,0) rotateX(0deg) rotateY(0deg)" },
+        ],
+        {
+          duration,
+          easing: cadenceEasing(),
+          fill: "none",
+        },
+      );
+    },
+  };
 }
 
 /**
@@ -119,28 +119,28 @@ export function createCamera(el, options = {}) {
  * @returns {Animation[]}
  */
 export function animateLines(lines, options = {}) {
-	const duration = options.duration ?? 380;
-	const stagger = options.stagger ?? 80;
-	const direction = options.direction ?? 'in';
+  const duration = options.duration ?? 380;
+  const stagger = options.stagger ?? 80;
+  const direction = options.direction ?? "in";
 
-	const fromFrame =
-		direction === 'in'
-			? { opacity: 0, transform: 'translateY(12px)' }
-			: { opacity: 1, transform: 'translateY(0)' };
+  const fromFrame =
+    direction === "in"
+      ? { opacity: 0, transform: "translateY(12px)" }
+      : { opacity: 1, transform: "translateY(0)" };
 
-	const toFrame =
-		direction === 'in'
-			? { opacity: 1, transform: 'translateY(0)' }
-			: { opacity: 0, transform: 'translateY(-12px)' };
+  const toFrame =
+    direction === "in"
+      ? { opacity: 1, transform: "translateY(0)" }
+      : { opacity: 0, transform: "translateY(-12px)" };
 
-	return lines.map((line, i) =>
-		line.animate([fromFrame, toFrame], {
-			duration,
-			delay: i * stagger,
-			easing: cadenceEasing(),
-			fill: 'forwards'
-		})
-	);
+  return lines.map((line, i) =>
+    line.animate([fromFrame, toFrame], {
+      duration,
+      delay: i * stagger,
+      easing: cadenceEasing(),
+      fill: "forwards",
+    }),
+  );
 }
 
 /**
@@ -165,23 +165,23 @@ export function animateLines(lines, options = {}) {
  * @returns {Animation}
  */
 export function animateTransform(el, to = {}, from = {}) {
-	const makeFrame = (/** @type {TransformOptions} */ opts) => ({
-		transform: [
-			`translate3d(${opts.x ?? 0}px, ${opts.y ?? 0}px, ${opts.z ?? 0}px)`,
-			`rotateX(${opts.rotateX ?? 0}deg)`,
-			`rotateY(${opts.rotateY ?? 0}deg)`,
-			`rotateZ(${opts.rotateZ ?? 0}deg)`,
-			`scale(${opts.scale ?? 1})`
-		].join(' ')
-	});
+  const makeFrame = (/** @type {TransformOptions} */ opts) => ({
+    transform: [
+      `translate3d(${opts.x ?? 0}px, ${opts.y ?? 0}px, ${opts.z ?? 0}px)`,
+      `rotateX(${opts.rotateX ?? 0}deg)`,
+      `rotateY(${opts.rotateY ?? 0}deg)`,
+      `rotateZ(${opts.rotateZ ?? 0}deg)`,
+      `scale(${opts.scale ?? 1})`,
+    ].join(" "),
+  });
 
-	const duration = to.duration ?? 350;
-	const delay = to.delay ?? 0;
+  const duration = to.duration ?? 350;
+  const delay = to.delay ?? 0;
 
-	return el.animate([makeFrame(from), makeFrame(to)], {
-		duration,
-		delay,
-		easing: cadenceEasing(),
-		fill: 'forwards'
-	});
+  return el.animate([makeFrame(from), makeFrame(to)], {
+    duration,
+    delay,
+    easing: cadenceEasing(),
+    fill: "forwards",
+  });
 }

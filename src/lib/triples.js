@@ -10,12 +10,24 @@
  * @type {string[][]}
  */
 export const triples = [
-	['We came.', 'We saw.', 'We conquered.'],
-	['Government of the people,', 'by the people,', 'for the people.'],
-	['Blood, toil,', 'tears,', 'and sweat.'],
-	['I came.', 'I saw.', 'I conquered.'],
-	['Friends, Romans, countrymen,', 'lend me your ears;', 'I come to bury Caesar.'],
-	['Life is short.', 'Art is long.', 'Opportunity is fleeting.'],
-	['Tell me and I forget.', 'Teach me and I remember.', 'Involve me and I learn.'],
-	['One small step for a man,', 'one giant leap for mankind,', 'one moment of eternity.']
+  ["We came.", "We saw.", "We conquered."],
+  ["Government of the people,", "by the people,", "for the people."],
+  ["Blood, toil,", "tears,", "and sweat."],
+  ["I came.", "I saw.", "I conquered."],
+  [
+    "Friends, Romans, countrymen,",
+    "lend me your ears;",
+    "I come to bury Caesar.",
+  ],
+  ["Life is short.", "Art is long.", "Opportunity is fleeting."],
+  [
+    "Tell me and I forget.",
+    "Teach me and I remember.",
+    "Involve me and I learn.",
+  ],
+  [
+    "One small step for a man,",
+    "one giant leap for mankind,",
+    "one moment of eternity.",
+  ],
 ];
