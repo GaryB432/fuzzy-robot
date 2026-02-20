@@ -12,13 +12,13 @@ The name, tone, and direction were set in an initial GitHub Copilot prompt — d
 
 ## Tech stack
 
-| Thing | Version / notes |
-|---|---|
-| Framework | SvelteKit + Svelte 5 (runes) |
-| Language | JavaScript with JSDoc types (`jsconfig.json`) |
-| Animations | Web Animations API — no runtime deps |
-| Bundler | Vite |
-| Linting | ESLint + Prettier |
+| Thing      | Version / notes                               |
+| ---------- | --------------------------------------------- |
+| Framework  | SvelteKit + Svelte 5 (runes)                  |
+| Language   | JavaScript with JSDoc types (`jsconfig.json`) |
+| Animations | Web Animations API — no runtime deps          |
+| Bundler    | Vite                                          |
+| Linting    | ESLint + Prettier                             |
 
 ## Conventions
 
