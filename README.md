@@ -1,42 +1,45 @@
-# sv
+# fuzzy-robot 🤖✨
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A playground where AI and animations hang out and make cool things together.
 
-## Creating a project
+No grand roadmap. No production SLAs. Just a SvelteKit sandbox for experimenting with motion, rhetoric, and whatever weird idea shows up next.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## What's in here?
+
+### Rhetorical Triples
+
+The first resident experiment. Classic three-part phrases — "veni, vidi, vici" style — animated with a subtle 3D camera swoop and staggered line reveals.
+
+Click (or hit `Enter` / `Space`) to cycle through them. Each triple flips between a positive and a negative color state before advancing. It's weirdly satisfying.
+
+The animation layer (`src/lib/animation.js`) is intentionally dependency-free — pure [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API). The comments call out exactly where you'd drop in GSAP or THREE.js if you wanted to go bigger.
+
+## Spirit & Scope
+
+- **Playground first.** Things will be half-finished, experimental, or just vibes.
+- **AI-assisted.** Copilot, Claude, whatever — AI is a first-class collaborator here, not a dirty secret.
+- **Animations matter.** Motion is the point, not an afterthought. Timing, easing, and cadence are worth caring about.
+- **Svelte 5 / SvelteKit.** Runes and all. If the framework ships something new and interesting, we'll probably poke it.
+
+## Running locally
 
 ```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv create --template minimal --types jsdoc --install npm .
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Open [http://localhost:5173](http://localhost:5173) and poke around.
 
-To create a production version of your app:
+## Other useful commands
 
 ```sh
-npm run build
+npm run build      # production build
+npm run preview    # preview the build
+npm run check      # svelte-check type checking
+npm run lint       # prettier + eslint
+npm run format     # auto-format everything
 ```
 
-You can preview the production build with `npm run preview`.
+## Contributing / Collaborating
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+See [`AGENTS.md`](./AGENTS.md) for notes aimed at AI collaborators (and humans who think like them).
