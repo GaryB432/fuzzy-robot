@@ -17,7 +17,7 @@ The name, tone, and direction were set in an initial GitHub Copilot prompt — i
 | Language   | JavaScript with JSDoc types (`jsconfig.json`) |
 | Animations | Web Animations API — no runtime deps          |
 | Bundler    | Vite                                          |
-| Linting    | ESLint + Prettier                             |
+| Linting    | ESLint + Prettier + perfectionist + gb        |
 
 ## Conventions
 
@@ -49,7 +49,7 @@ The name, tone, and direction were set in an initial GitHub Copilot prompt — i
 - JavaScript only (no TypeScript)
 - JSDoc for type safety in `.js` files `@js-hint` locally if not already global. Use `svelte-check` to ensure type usage.
 - Web Animations API (no GSAP initially)
-- ESLint + Prettier default recommended configs
+- ESLint + Prettier (with `eslint-plugin-perfectionist` and `eslint-plugin-gb`)
 - Accessibility lint rules enabled
 
 # Architectural Requirements
